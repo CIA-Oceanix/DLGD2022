@@ -1,0 +1,7 @@
+# @package _global_
+data:
+    number_of_past_days: 7
+    batch_size: 8
+training:
+    partial_optimizer:
+        lr: 2e-3

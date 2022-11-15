@@ -1,0 +1,6 @@
+_target_: new_src.MyForecastModel
+ninput: ${data.number_of_past_days}
+nhidden: 16
+nlayers: 1
+residual: true
+

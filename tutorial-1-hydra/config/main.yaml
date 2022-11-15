@@ -1,0 +1,25 @@
+logdir: hydra_logs/${now:'%y-%m-%d--%H-%M-%S'}
+data:
+    _target_: src.dataloaders
+    dataarray: {_target_: "src.load_ssh"}
+    training_periods:
+        - {_target_: "builtins.slice", "_args_":["2013-01-01", "2013-09-30"]} # slice("2013-01-01", "2013-09-30")
+    validation_periods: 
+        - {_target_: "builtins.slice", "_args_":["2012-10-01", "2012-12-31"]}
+    batch_size: 16
+    number_of_past_days: 5
+training:
+    _target_: src.train
+    model: ${model}
+    partial_optimizer:
+        _target_: torch.optim.Adam
+        lr: 0.008
+        _partial_: true # functools.partial(torch.optim.Adam, lr=0.008)
+    n_epochs: 50
+diagnostic:
+    _target_: src.forecast_diagnostic
+    number_of_forecast_days: ${data.number_of_past_days} 
+
+defaults:
+    - model: simple_conv  # Load config/model/simple_conv.yaml config in "model" key
+    - _self_

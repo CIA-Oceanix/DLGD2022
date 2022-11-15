@@ -1,0 +1,10 @@
+# @package _global_ 
+data:
+    dataarray: {_target_: new_src.load_sst}
+training:
+    partial_optimizer:
+        lr: 1e-3
+defaults:
+    - override /model: small_cnn
+    - _self_
+
