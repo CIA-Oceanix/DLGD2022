@@ -6,3 +6,5 @@ It comprises a subdirectory for each lecture:
 - Lecture 2: Deep Differentiable Emulators (Dr. David Greenberg)
 - Lecture 3: Learning and Optimal Transport (Prof. Nicolas Courty)
 - Lecture 4: Deep Learning, OI and Data Assimilation (Prof. Ronan Fablet)
+
+Ressources for the tutorials on DL packages are also available.
